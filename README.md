@@ -9,3 +9,4 @@
 - Boxicons
 - Scrollreveal
 - EmailJS
+- Notyf
