@@ -1,16 +1,20 @@
 const emailForm = document.getElementById("emailForm");
 
+const notyf = new Notyf({
+    duration: 4000,
+    position: {
+        x: 'right',
+        y: 'top',
+    }
+});
+
 const sendFeedback = (templateId, variables) => {
     window.emailjs
         .send("service_mwi9v0e", templateId, variables)
         .then((res) => {
-            console.log('success !');
+            notyf.success("Votre mail est envoyé, je vous recontacte rapidement, Merci ;-)")
         })
-        .catch(
-            (err) =>
-                console.log(err)
-            // document.getElementById("erreur").innerHTML = "Probleme lors de l'envoi !!!")
-        )
+        .catch((err) => notyf.error("Un problème est survenue lors de l'envoi, veuillez ré-essayer et si le problème persiste je vous invite à copier mon adresse mail et d'utiliser votre service mail habituel. Merci ;-)"))
 };
 
 emailForm.addEventListener('submit', (e) => {
@@ -22,23 +26,23 @@ emailForm.addEventListener('submit', (e) => {
     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     if (name.value === '' || name.value == null) {
-        console.log("Veuillez remplir votre nom svp");
+        notyf.error("Veuillez remplir votre nom svp");
         return false;
     };
     if (email.value === '' || email.value == null) {
-        console.log("Veuillez remplir votre email pour que je vous re-contact rapidement. Merci");
+        notyf.error("Veuillez remplir votre email afin que je vous recontacte rapidement. Merci");
         return false;
     };
     if (!email.value.match(mailformat)) {
-        alert("Veuillez saisir une adresse mail valide afin que je vous re-contact rapidement. Merci");
+        notyf.error("Veuillez saisir une adresse mail valide afin que je vous recontacte rapidement. Merci");
         return false;
     }
     if (message.value === '' || message.value == null) {
-        console.log("Veuillez remplir votre message afin que je vous reponde rapidement. Merci");
+        notyf.error("Veuillez remplir votre message afin que je vous reponde rapidement. Merci");
         return false;
     };
     if (message.value.length <= 3) {
-        console.log("Votre message est un peu court ;-)");
+        notyf.error("Votre message est un peu court ;-)");
         return false;
     };
 
