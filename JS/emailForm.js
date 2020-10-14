@@ -12,6 +12,7 @@ const sendFeedback = (templateId, variables) => {
     window.emailjs
         .send("service_mwi9v0e", templateId, variables)
         .then((res) => {
+            document.getElementById('submitButton').value = "Envoyer";
             notyf.success("Votre mail est envoyé, je vous recontacte rapidement, Merci ;-)")
         })
         .catch((err) => notyf.error("Un problème est survenue lors de l'envoi, veuillez ré-essayer et si le problème persiste je vous invite à copier mon adresse mail et d'utiliser votre service mail habituel. Merci ;-)"))
@@ -45,7 +46,7 @@ emailForm.addEventListener('submit', (e) => {
         notyf.error("Votre message est un peu court ;-)");
         return false;
     };
-
+    document.getElementById('submitButton').value = "Envoi...";
 
     sendFeedback("template_2oy92rn", {
         name: name.value,
