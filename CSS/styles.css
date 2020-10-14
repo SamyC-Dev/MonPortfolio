@@ -10,7 +10,6 @@
     --white-color: #FAFAFF;
     --dark-color: #2A3B47;
     --text-color: #697477;
-
 }
 
 :root{
@@ -72,7 +71,9 @@ img{
     height: auto;
     display: block;
 }
-
+#iconTheme {
+    cursor: pointer;
+}
 .section{
     padding: 3rem 0;
 }
@@ -348,7 +349,9 @@ img{
     font-size: var(--normal-font-size);
     cursor: pointer;
 }
-
+.contact__button:hover {
+    background-color: var(--dark-color);
+}
 .footer{
     background-color: var(--dark-color);
 }
