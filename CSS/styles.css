@@ -291,7 +291,7 @@ img{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     background-color: rgba(255,255,255,.3);
     border-radius: .5rem;
     cursor: pointer;
@@ -378,6 +378,12 @@ img{
 }
 .footer__social:hover{
     color: var(--first-color);
+}
+.technoSpan {
+    background-color:var(--first-color);
+    padding: 0 10px;
+    border-radius: 10px;
+    color: var(--white-color);
 }
 
 @media screen and (min-width: 768px){

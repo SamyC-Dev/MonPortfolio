@@ -1,6 +1,6 @@
 # MonPortfolio
 
-## Techno:
+## Technos:
 - html
 - css
 - javascript
